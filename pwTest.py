@@ -43,10 +43,13 @@ cur_pw = base_pw
 pw_list = ["qwert!@#$%", "qwert12345", "qwe!@#12", "1111"]
 
 for pw in pw_list:
-    # 정보수정 페이지 진입
-    profile_button_name = 'prf_btn'
-    profile_button = browser.find_element(By.CLASS_NAME, profile_button_name)
-    profile_button.click()
+    try:
+        # 정보수정 페이지 진입
+        profile_button_name = 'prf_btn'
+        profile_button = browser.find_element(By.CLASS_NAME, profile_button_name)
+        profile_button.click()
+    except Exception as error:
+        print("로그인 실패")
 
     time.sleep(1)
 
@@ -126,6 +129,6 @@ for pw in pw_list:
 
         time.sleep(1)
     except Exception as error:
-        print("비밀번호 변경 기능 오류")
+        print("비밀번호 변경 후 로그인 기능 오류")
 
 
